@@ -8,8 +8,19 @@
 //4 - Divisão de 2 Número
 //5 - Sair
 
+int calcular_idade(){
+	int aa, an, idade;
+	system("cls");
+	printf("Digite o ano que nasceu: ");
+	scanf("%d", &an);
+	
+	aa = 2023;
+	idade = aa - an;
+	return idade;
+}
+
 int menu(){
-	int opcao;
+	int opcao, retorno;
 	do{
 		system("cls");
 		printf("Informe a Opcao: ");
@@ -23,6 +34,7 @@ int menu(){
 		
 		if(opcao == 1){
 			calcular_idade();
+			retorno = calcular_idade();
 		}
 		else
 			if(opcao == 2){
@@ -31,7 +43,7 @@ int menu(){
 	}while(opcao != 5);
 }
 
-
 void main(){
-		
+	menu();	
+	
 }
