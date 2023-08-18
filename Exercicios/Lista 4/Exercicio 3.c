@@ -11,12 +11,13 @@
 int calcular_idade(){
 	int aa, an, idade;
 	system("cls");
-	printf("Digite o ano que nasceu: ");
+	printf("\n<<Calcule sua idade>>");
+	printf("\nDigite o ano que nasceu: ");
 	scanf("%d", &an);
 	
 	aa = 2023;
 	idade = aa - an;
-	printf("\nEsta eh sua idade: %d", idade);
+	return idade;
 }
 
 int calcular_media(){
@@ -36,7 +37,7 @@ int calcular_media(){
 	scanf("%d", &n4);
 	
 	media = (n1 + n2 + n3+ n4) / 4;
-	printf("Media: %f", media);
+	return media;
 }
 
 int mult_numeros(){
@@ -49,48 +50,63 @@ int mult_numeros(){
 	scanf("%d", &n2);
 	
 	mult = n1 * n2;
-	printf("Resultado da multiplicacao: %d", mult);
+	return mult;
 }
 
-int div_numeros(){
-	int n1, n2;
-	float div;
+float div_numeros(){
+	
+	float div, n1, n2;
 	printf("Digite o n1: ");
-	scanf("%d", n1);
+	scanf("%f", &n1);
 	
 	printf("Digite o n2: ");
-	scanf("%d", n2);
+	scanf("%f", &n2);
 	
 	div = n1 / n2;
-	printf("Resultado da divisao: %f", div);
+	return div;
 }
-int menu(){
-	int opcao;
+void menu(){
+	int opcao, idade, media, mult;
+	float div;
 	do{
-		printf("\nInforme a Opcao: ");
+		system("cls");
+		printf("\nMenu de Opcao: ");
 		printf("\n1 - Calcular Idade: ");
-		printf("\n2 - Media de 3 Notas: ");
-		printf("\n3 - Maior Numero: ");
-		printf("\n4 - Menor Numero: ");
+		printf("\n2 - Media de 4 Notas: ");
+		printf("\n3 - Multiplicação de 2 Número: ");
+		printf("\n4 - Divisão de 2 Número: ");
 		printf("\n5 - Sair: ");
 		printf("\nInforme a Opcao: ");
 		scanf("%d", &opcao);
 		
-		if(opcao == 1){
-			calcular_idade();
+		switch(opcao){
+			case 1:
+				//idade = calcular_idade();
+				//printf("\nidade: %d", idade);
+				
+				printf("\nidade: %d", calcular_idade());
+				break;
+			case 2:
+				media = calcular_media();
+				printf("Media: %d", media);
+				break;
+			case 3:
+				mult = mult_numeros();
+				printf("Multiplicacao: %d", mult);
+				break;
+			case 4:
+				div = div_numeros();
+				printf("Divsao de 2 numeros: %0.2f", div);
+				break;
+			case 5:
+				printf("\nPrograma finalizado!");
+				break;
+			default:
+				system("cls");
+				printf("\n\nOpcao invalida!");
 		}
-		else
-			if(opcao == 2){
-				calcular_media();		
-			}
-			else
-				if(opcao == 3){
-					mult_numeros();	
-				}
-				else
-					if(opcao == 4){
-						div_numeros();	
-					}
+		printf("\n\n");
+		system("\npause");
 	}while(opcao != 5);
 }
 
