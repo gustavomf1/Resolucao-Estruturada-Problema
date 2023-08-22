@@ -26,7 +26,7 @@ int calcular_mult(int n1, int n2){
 	return mult;
 }
 
-void main(){
+void menu(){
 	int opcao, n1, n2, resultado, soma, sub, mult;
 	float div;
 	do{
@@ -63,4 +63,8 @@ void main(){
 				}
 				system("\npause");
 	}while(opcao != 5);
+}
+
+void main(){
+	menu();
 }
