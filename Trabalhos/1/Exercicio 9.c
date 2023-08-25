@@ -6,12 +6,12 @@ void proc_idade(int idade, char *categoria){
 	
 	if(idade >= 5 || idade <= 7){
 		*categoria = 'A';
-		printf("Categoria: %s", *categoria);
+		printf("Categoria: %s", categoria);
 	}
-	else
-		if(idade >= 8 || idade <= 10){
-			*categoria = 'B';
-			printf("Categoria: %s", *categoria);
+	
+	if(idade >= 8 || idade <= 10){
+		*categoria = 'B';
+		printf("Categoria: %s", categoria);
 		}
 }
 
