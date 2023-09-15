@@ -21,7 +21,13 @@ void exibir_vetor(int vetor[TF],int vetor_par[5],int vetor_imp[5]){
 			vetor_par[ii] = vetor[i];
 			printf("\nVetor_par[%d]: %d", ii, vetor_par[ii]);		
 			ii++;
+			if (ii > 4){
+				printf("\n\nVetor cheio");
+				break;
+			}
 		}
+		
+		
 	}
 	
 	printf("\n\n<<<Vetor Impar>>>");
@@ -30,6 +36,10 @@ void exibir_vetor(int vetor[TF],int vetor_par[5],int vetor_imp[5]){
 			vetor_imp[iii] = vetor[i];
 			printf("\nVetor_imp[%d]: %d", iii, vetor_imp[iii]);		
 			iii++;
+			if (iii > 4){
+				printf("\n\nVetor cheio");
+				break;
+			}
 		}
 	}
 }
