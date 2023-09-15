@@ -37,13 +37,8 @@ void exibir_vetor(int vetor[TF]){
 	}
 }
 
-void exibir_media(int vetor[TF]){
-	
-}
-
 void main(){
 	int vetor[TF];
 	carregar_vetor(vetor);
 	exibir_vetor(vetor);
-	exibir_media(vetor);
 }
