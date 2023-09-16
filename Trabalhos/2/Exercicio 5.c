@@ -25,9 +25,7 @@ void exibir_vetor(int vetor[TF],int vetor_par[5],int vetor_imp[5]){
 				printf("\n\nVetor cheio");
 				break;
 			}
-		}
-		
-		
+		}	
 	}
 	
 	printf("\n\n<<<Vetor Impar>>>");
