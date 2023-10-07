@@ -25,7 +25,7 @@ void exibir_matriz(int mat[TL][TC]){
 }
 
 void somas_media(int mat[TL][TC]){
-	int l, c, cont = 0, acum = 0, j = 0;
+	int l, c, cont = 0, acum = 0, j = 0, colum = 0;
 	float media = 0;
 	for(l=0;l<TL;l++){ //este for, percorre as linhas
 		for(c=0;c<TC;c++){ //este for, percorre as colunas
@@ -36,11 +36,24 @@ void somas_media(int mat[TL][TC]){
 			if(c == 2 || c == 4){
 				acum += mat[l][c];
 				j++;
+			}
+			
+			if (c == 1 || c == 2){
+				colum += mat[l][c];
 			}		
-		}	
+		}
+	
 	}
 	
 	media = acum / j;
+	
+	for(l=0;l<TL;l++){
+		for(c=0;c<TC;c++){
+			mat[l][5] = colum;			
+		}
+	}
+	
+	
 	
 	printf("\nSoma de todos os elementos das colunas impares: %d", cont);
 	printf("\nMedia dos elementos da segunda e sexta coluna: %0.2f", media);
@@ -51,4 +64,6 @@ void main(){
 	carregar_matriz(mat);
 	exibir_matriz(mat);
 	somas_media(mat);
+	printf("\n\n");
+	exibir_matriz(mat);
 }
