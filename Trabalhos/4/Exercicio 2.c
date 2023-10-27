@@ -91,7 +91,7 @@ void menor_media(struct alunos reg_cand[TF]){
 			}
 	}	
 	
-	printf("\n\nO aluno %s teve a maior nota da sala: %0.2f", menor_nome, menor_media);
+	printf("\n\nO aluno %s teve a menor nota da sala: %0.2f", menor_nome, menor_media);
 }
 
 
