@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <string.h>
 
-#define TF 2
+#define TF 5
 
 struct alunos{
 	char nome[100];
@@ -14,6 +14,7 @@ struct alunos{
 
 void carregar_registro(struct alunos reg_cand[TF]){
 	int i;
+	float media_geral;
 	printf("\n<<Informe dados do Cadastro das Candidatas>>");
 	for(i=0; i<TF; i++){
 		printf("\n\n<<Registro[%d]", i);
@@ -31,7 +32,7 @@ void carregar_registro(struct alunos reg_cand[TF]){
 		printf("\nInforme o Nota 2: ");
 		scanf("%f", &reg_cand[i].nota2);	
 		
-		reg_cand[i].media = (reg_cand[i].nota1 + reg_cand[i].nota2) / 2;
+		reg_cand[i].media = (reg_cand[i].nota1 + reg_cand[i].nota2) / TF;
 	}
 }
 
@@ -94,6 +95,53 @@ void menor_media(struct alunos reg_cand[TF]){
 	printf("\n\nO aluno %s teve a menor nota da sala: %0.2f", menor_nome, menor_media);
 }
 
+void media_geral(struct alunos reg_cand[TF]){
+	int i;
+	float media_todos = 0, result = 0;
+	for(i=0; i<TF; i++){
+		media_todos += reg_cand[i].media;
+	}
+	
+	result = media_todos / TF; 
+	
+	printf("\n\nMedia Total da classe: %0.2f", result);
+}
+
+void acima_media(struct alunos reg_cand[TF]){
+	int i, j = 0;	
+	
+	for (i=0; i<TF; i++){
+		if (reg_cand[i].media >= 7){
+			j++;
+		}
+	}
+	
+	printf("\n\nQuantidade de alunos que possuem media maior ou igual a 7: %d", j);
+}
+
+void abaixo_media(struct alunos reg_cand[TF]){
+	int i, j = 0;	
+	
+	for (i=0; i<TF; i++){
+		if (reg_cand[i].media < 7){
+			j++;
+		}
+	}
+	
+	printf("\n\nQuantidade de alunos que possuem media menor q 7: %d", j);
+}
+
+void faltas(struct alunos reg_cand[TF]){
+	int i, j = 0;	
+	
+	for (i=0; i<TF; i++){
+		if (reg_cand[i].nr_faltas > 20){
+			j++;
+		}
+	}
+	
+	printf("\n\nQuantidade de alunos que possuem mais de 20 faltas: %d", j);
+}
 
 void main(){
 	struct alunos reg_cand[TF];
@@ -102,5 +150,8 @@ void main(){
 	exibir_registro(reg_cand);
 	maior_media(reg_cand);
 	menor_media(reg_cand);
-	
+	media_geral(reg_cand);
+	acima_media(reg_cand);
+	abaixo_media(reg_cand);
+	faltas(reg_cand);
 }
