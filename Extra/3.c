@@ -1,102 +1,66 @@
 #include <stdio.h>
 #include <conio.h>
 
-#define TL 3
-#define TC 3
+#define TC 2 //TC vai definir o tamanho das colunas
+#define TL 2 //TL vai definir o tamanho das linhas
 
-
-void carregar_matriz(int mat[TL][TC]) {
+void carregar_matriz(int mat[TL][TC]){
 	int l, c, soma = 0;
-	
-	for (l = 0; l < TL; l++){
-		for(c = 0; c < TC; c++){
+	for(l=0;l<TL;l++){ //este for, percorre as linhas
+		for(c=0;c<TC;c++){ //este for, percorre as colunas
 			soma += 10;
-			mat[l][c] = soma;
-		}
-	}
+			mat[l][c] = soma; //para acessar a matriz, utilizar MATRIZ[LINHA][COLUNA]
+		}	
+	}	
 }
 
+void carregar_matriz2(int mat[TL][TC]){
+	int l, c, soma = 0;
+	for(l=0;l<TL;l++){ //este for, percorre as linhas
+		for(c=0;c<TC;c++){ //este for, percorre as colunas
+			soma += 10;
+			mat[l][c] = soma; //para acessar a matriz, utilizar MATRIZ[LINHA][COLUNA]
+		}	
+	}	
+}
 
 void exibir_matriz(int mat[TL][TC]){
-	int l, c;
-	
-	for(l = 0; l < TL; l++){
-		for(c = 0; c < TL; c++){
-			printf("%d |", mat[l][c]);
-		}
-		printf("\n");
-			
-	}
+		int l, c;
+		for(l=0;l<TL;l++){ //este for, percorre as linhas
+			for(c=0;c<TC;c++){ //este for, percorre as colunas
+			printf("%d |", mat[l][c]); //para acessar a matriz, utilizar MATRIZ[LINHA][COLUNA]
+			}
+			printf("\n");	
+		}		
 }
 
-void soma_total(int mat[TL][TC]){
-	int l, c, soma = 0;
-	
-	for (l = 0; l < TL; l++){
-		for(c = 0; c < TC; c++){
-			soma += mat[l][c];
-		}
-	}
-	printf("\n\nSoma total da matriz: %d", soma);
-}
-
-void maior_menor(int mat[TL][TC]){
-	int l, c, maior = 0, menor = 0;
-	
-	printf("\n\n<<Maior e menor elemento da matriz>>");
-	
-	for (l = 0; l < TL; l++){
-		for(c = 0; c < TC; c++){
-			if (l == 0 && c == 0){
-				maior = mat[l][c];	
+void media_um(int mat[TL][TC]){
+	int l, c, acum = 0;
+	float media = 0;
+	printf("\n");
+	for(l=0;l<TL;l++){ //este for, percorre as linhas
+		for(c=0;c<TC;c++){ //este for, percorre as colunas
+			if (mat[l][c] == mat[0][0]){
+				acum += mat[l][c];	
 			}
-			
-			if(mat[l][c] > maior){
-				maior = mat[l][c];
+				else
+					if (mat[l][c] == mat[1][1]){
+						acum += mat[l][c];
+					}
+					else
+						if (mat[l][c] == mat[2][2]){
+							acum += mat[l][c];
+						}					
 			}
 		}
-	}
-	
-	for (l = 0; l < TL; l++){
-		for(c = 0; c < TC; c++){
-			if (l == 0 && c == 0){
-				menor = mat[l][c];	
-			}
-			
-			if(mat[l][c] < menor){
-				menor = mat[l][c];
-			}
-		}
-	}
-	
-	printf("\nMaior: %d", maior);
-	printf("\nMenor: %d", menor);
-}
-
-void media_elementos(int mat[TL][TC]){
-	int i, l, c, soma = 0;
-	float media;
-	
-	for (l = 0; l < TL; l++){
-		for(c = 0; c < TC; c++){
-			soma += mat[l][c];	
-		}
-	}
-	
-	i = TL * TC;
-	
-	media = soma / i;
-	
-	printf("\n\nMedia da matriz: %0.2f", media);
+		
+		media = acum / TL;
+		printf("Valor da media: %0.2f", media);
 }
 
 void main(){
 	int mat[TL][TC];
-	
 	carregar_matriz(mat);
 	exibir_matriz(mat);
-	soma_total(mat);
-	maior_menor(mat);
-	media_elementos(mat);
+	media_um(mat);
 }
-
